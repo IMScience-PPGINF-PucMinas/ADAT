@@ -1,12 +1,13 @@
 import json
+import simplejson
 
 
 def save_json(data, filename, save_pretty=False, sort_keys=False):
     with open(filename, "w") as f:
         if save_pretty:
-            f.write(json.dumps(data, indent=4, sort_keys=sort_keys))
+            f.write(simplejson.dumps(data, indent=4, sort_keys=sort_keys))
         else:
-            json.dump(data, f)
+            simplejson.dump(data, f)
 
 
 def save_parsed_args_to_json(parsed_args, file_path, pretty=True):
